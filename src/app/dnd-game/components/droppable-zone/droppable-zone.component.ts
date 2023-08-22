@@ -53,8 +53,17 @@ export class DroppableZoneComponent implements AfterContentInit {
   handleDrop(event: DragEvent) {
     event.stopPropagation();
     event.preventDefault();
+    let data!: objectType;
+
+    try { // Attempt to parse the data from the dragged element
+      data = this.parseObject(event.dataTransfer!.getData('text/plain'));
+    } catch (error) {
+      this.isDragEnter = false;
+      return;
+    }
+
     const comp = this.containerRef.createComponent(DraggableElemComponent);
-    comp.instance.data = this.parseObject(event.dataTransfer!.getData('text/plain'));
+    comp.instance.data = data;
     comp.instance.falsePosition = comp.instance.data.name != this.name;
     comp.instance.onDragEventOver.subscribe( res => {
       this.childrenRefs = this.childrenRefs.filter( x => x != comp);
