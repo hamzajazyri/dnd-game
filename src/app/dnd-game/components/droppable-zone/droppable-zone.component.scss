@@ -1,0 +1,23 @@
+.droppable-container {
+  border:1px dashed #411;
+  height: 100%;
+  padding:20px;
+  background:#eee;
+  &.is-drag-enter {
+    border-color: green;
+    background:rgba(0, 128, 0, 0.1);
+  }
+  h1 {
+    color:#333;
+    text-transform: uppercase;
+    margin: 0px  0px 20px 0px;
+    font-size: 15px;
+    pointer-events: none;
+  }
+  .droppable-elments {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+  }
+}

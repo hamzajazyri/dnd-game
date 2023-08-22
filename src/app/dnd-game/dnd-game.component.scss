@@ -1,0 +1,28 @@
+.dnd-game-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 100px;
+  gap: 50px;
+}
+
+.droppable-elem-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+  gap: 50px;
+}
+
+.droppable-elem {
+  border:1px dashed #ccc;
+}
+
+
+.dnd-game-footer {
+  display: flex;
+  align-items: center;
+  >button {
+    padding: 7px 17px;
+    cursor: pointer;
+  }
+}

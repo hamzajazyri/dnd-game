@@ -1,0 +1,6 @@
+<div class="draggable-item-container"
+  [ngClass]="{'false': falsePosition && displayCheckResult, 'true': !falsePosition && displayCheckResult}"
+  [draggable]="!isDragStarted"
+  [ngStyle]="{'opacity': isDragStarted ? '.5' : '1'}">
+  <img [src]="data.picture" alt="pic" />
+</div>

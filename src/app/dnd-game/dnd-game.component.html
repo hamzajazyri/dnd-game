@@ -1,0 +1,13 @@
+<div class="dnd-game-container">
+  <div class="droppable-elem-container">
+    <app-droppable-zone *ngFor="let item of objectNames" [name]="item"></app-droppable-zone>
+  </div>
+  <div class="draggable-elem-container">
+    <app-droppable-zone name="">
+      <app-draggable-elem *ngFor="let item of objectData.objects" [data]="item"></app-draggable-elem>
+    </app-droppable-zone>
+  </div>
+  <div class="dnd-game-footer">
+    <button (click)="checkResult()"> check </button>
+  </div>
+</div>
