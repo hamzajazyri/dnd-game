@@ -1,6 +1,18 @@
 <div class="draggable-item-container"
   [ngClass]="{'false': falsePosition && displayCheckResult, 'true': !falsePosition && displayCheckResult}"
-  [draggable]="!isDragStarted"
-  [ngStyle]="{'opacity': isDragStarted ? '.5' : '1'}">
+  [draggable]="!isDragStarted" [ngStyle]="{'opacity': isDragStarted ? '.5' : '1'}">
   <img [src]="data.picture" alt="pic" />
+  <div class="icon" *ngIf="displayCheckResult">
+    <svg *ngIf="!falsePosition; else falseTemp">
+      <use xlink:href="assets/approved-icon.svg#approved" />
+    </svg>
+  </div>
 </div>
+
+
+
+<ng-template #falseTemp>
+  <svg>
+    <use xlink:href="assets/error-icon.svg#error" />
+  </svg>
+</ng-template>

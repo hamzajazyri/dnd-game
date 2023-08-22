@@ -1,21 +1,35 @@
 .draggable-item-container {
   height: 150px;
   width: 150px;
-  background:#fff;
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  pointer-events:visibleStroke;
+  position: relative;
+
   &.false {
     box-shadow: 0px 0px 10px 2px rgba(255, 0, 0, 0.305);
   }
+
   &.true {
     box-shadow: 0px 0px 10px 2px rgba(0, 255, 0, 0.305);
   }
-  > img {
+
+  >img {
     max-width: 90%;
     pointer-events: none;
+  }
+
+  .icon {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    >svg {
+      width: 30px;
+      height: 30px;
+
+    }
   }
 }
 
