@@ -1,6 +1,6 @@
 import { Component, Input, QueryList, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { objectJsonType } from '../const';
+import { DropZoneResult, objectJsonType } from '../const';
 import { DroppableZoneComponent } from './components/droppable-zone/droppable-zone.component';
 import { DraggableElemComponent } from './components/draggable-elem/draggable-elem.component';
 
@@ -19,10 +19,16 @@ export class DndGameComponent {
   get objectNames() {
     return [...new Set(this.objectData.objects.map( x => x.name))];
   }
+  result!: DropZoneResult;
+  showResult = false;
 
   checkResult() {
+    this.result = {elementsCount: 0, errorsCount: 0};
     for(const dropzone of this.droppableZones) {
-      dropzone.checkResult();
+      const dropZoneResult = dropzone.checkResult();
+      this.result.elementsCount += dropZoneResult.elementsCount;
+      this.result.errorsCount += dropZoneResult.errorsCount;
     }
+    this.showResult = true;
   }
 }

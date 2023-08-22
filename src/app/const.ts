@@ -46,3 +46,5 @@ export type objectType = {
     name: string;
     picture: ImageDataBase64;
 }
+
+export type DropZoneResult = {elementsCount: number, errorsCount: number};

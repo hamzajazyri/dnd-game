@@ -9,5 +9,8 @@
   </div>
   <div class="dnd-game-footer">
     <button (click)="checkResult()"> check </button>
+    <div class="result" *ngIf="showResult" [ngClass]="{'success': result.errorsCount === 0}">
+      {{result.elementsCount-result.errorsCount}} / {{result.elementsCount}}
+    </div>
   </div>
 </div>

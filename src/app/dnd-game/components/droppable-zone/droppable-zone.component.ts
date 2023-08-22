@@ -1,7 +1,7 @@
 import { AfterContentInit, Component, ComponentRef, ContentChildren, HostListener, Input, QueryList, ViewChild, ViewContainerRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DraggableElemComponent } from '../draggable-elem/draggable-elem.component';
-import { objectType } from 'src/app/const';
+import { DropZoneResult, objectType } from 'src/app/const';
 
 @Component({
   selector: 'app-droppable-zone',
@@ -65,10 +65,17 @@ export class DroppableZoneComponent implements AfterContentInit {
     this.isDragEnter = false;
   }
 
-  checkResult() {
+  checkResult() : DropZoneResult {
+    let errorsCount = 0;
     for(const child of this.childrenRefs) {
       child.instance.displayCheckResult = true;
+      if(child.instance.falsePosition)
+        errorsCount++;
     }
+    return {
+      elementsCount: this.childrenRefs.length,
+      errorsCount
+    };
   }
 
   private parseObject(objStr: string): objectType {

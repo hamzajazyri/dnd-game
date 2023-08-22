@@ -26,3 +26,13 @@
     cursor: pointer;
   }
 }
+
+
+.result {
+  font-weight: bold;
+  margin:0px 20px;
+  font-size: 20px;
+  &.success {
+    color:green;
+  }
+}
