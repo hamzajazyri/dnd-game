@@ -48,3 +48,6 @@ export type objectType = {
 }
 
 export type DropZoneResult = {elementsCount: number, errorsCount: number};
+
+
+export type Cord = {x: number, y: number};
